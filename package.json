@@ -1,0 +1,24 @@
+{
+  "name": "google-postmaster-tools-mcp",
+  "version": "1.0.0",
+  "description": "A local Model Context Protocol (MCP) server to bring Google Postmaster Tools deliverability data into Claude Desktop.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "mcp",
+    "claude",
+    "google-postmaster-tools",
+    "email-deliverability",
+    "klaviyo"
+  ],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.29.0",
+    "dotenv": "^17.4.2",
+    "googleapis": "^140.0.0"
+  }
+}
