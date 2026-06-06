@@ -39,7 +39,7 @@ Before running the server, your computer needs two safe, industry-standard utili
 Once both are installed, download this project by clicking the green **Code** button at the top of this GitHub page and selecting **Download ZIP**, then extract it to a folder on your computer (e.g., your Documents folder). Alternately, open a terminal/command prompt and run the following command:
 
 ```bash
-git clone [https://github.com/YOUR_USERNAME/YOUR_REPOSITORY_NAME.git](https://github.com/YOUR_USERNAME/YOUR_REPOSITORY_NAME.git)
+git clone https://github.com/808broadway/google-postmaster-tools-mcp.git
 ```
 
 ---
