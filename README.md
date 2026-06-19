@@ -17,7 +17,7 @@ An automated, standalone connector that allows Claude to read your Google Postma
 
 ## 🔑 Phase 2: Get Your Google Master Key
 
-1. Go to the [Google Cloud Console](https://console.cloud.google.com/) and create a **New Project** named `Postmaster MCP`.
+1. Go to the [Google Cloud Console](https://console.cloud.google.com/) and create a **New Project** named `Google Postmaster Tools MCP`.
 2. Search for the **Gmail Postmaster Tools API** and click **Enable**.
 3. Go to **APIs & Services > OAuth consent screen**:
     * Set User Type to **External** and click Create.
