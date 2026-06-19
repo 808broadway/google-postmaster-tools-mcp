@@ -5,10 +5,15 @@ const { StdioServerTransport } = require('@modelcontextprotocol/sdk/server/stdio
 const { CallToolRequestSchema, ListToolsRequestSchema } = require('@modelcontextprotocol/sdk/types.js');
 const { google } = require('googleapis');
 
+// Check if running inside a compiled pkg executable
+const isCompiled = typeof process.pkg !== 'undefined';
+// Use the .exe location if compiled, otherwise fallback to the script directory
+const basePath = isCompiled ? path.dirname(process.execPath) : __dirname;
+
 // Dynamic token routing based on arguments passed by Claude
 const tokenFileName = process.argv[2] || 'token.json'; 
-const TOKEN_PATH = path.join(__dirname, tokenFileName);
-const CREDENTIALS_PATH = path.join(__dirname, 'credentials.json');
+const TOKEN_PATH = path.join(basePath, tokenFileName);
+const CREDENTIALS_PATH = path.join(basePath, 'credentials.json');
 
 // Automatically extract the account name from the token file to avoid collisions
 const accountPrefix = tokenFileName.replace('token_', '').replace('.json', '');
@@ -54,7 +59,7 @@ server.setRequestHandler(ListToolsRequestSchema, async () => {
           properties: {
             domainName: {
               type: 'string',
-              description: 'The exact domain name to fetch stats for (e.g., "xeroshoes.com")'
+              description: 'The exact domain name to fetch stats for (e.g., "example.com")'
             },
             startDateYear: { type: 'integer', description: 'e.g., 2025' },
             startDateMonth: { type: 'integer', description: '1-12' },
