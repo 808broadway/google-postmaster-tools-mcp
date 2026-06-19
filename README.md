@@ -18,16 +18,17 @@ An automated, standalone connector that allows Claude to read your Google Postma
 ## 🔑 Phase 2: Get Your Google Master Key
 
 1. Go to the [Google Cloud Console](https://console.cloud.google.com/) and create a **New Project** named `Google Postmaster Tools MCP`.
-2. Search for the **Gmail Postmaster Tools API** and click **Enable**.
-3. Go to **APIs & Services > OAuth consent screen**:
-    * Set User Type to **External** and click Create.
-    * Fill out the mandatory fields (App Name, Support Email, and Developer Email) and save through to the end.
-    * **Crucial Step:** On the dashboard, click **Publish App** to move the status to **In Production**. (If you leave it in "Testing," your tokens will expire every 7 days).
-4. Go to **APIs & Services > Credentials**:
-    * Click **+ Create Credentials** and select **OAuth client ID**.
-    * Choose **Desktop app** as the Application Type and click **Create**.
+2. In the search bar at the top, search for **Gmail Postmaster Tools API** and select it. On the next page, click **Enable**.
+3. In the left menu, navigate to **Google Auth Platform > Overview**. You will see a "Google Auth Platform not configured yet" message. Click **Get started**.
+    * **Step 1: App Information.** Enter the app name `Google Postmaster Tools MCP` and select your email address. Click **Next**.
+    * **Step 2: Audience.** Select **External**. Click **Next**.
+    * **Step 3: Contact Information.** Enter your email address. Click **Next**.
+    * **Step 4: Finish.** Check the box agreeing to the User Data Policy. Click **Continue**, then click **Create**.
+4. **Crucial Step:** In the left column, click **Audience**. Under *Testing*, click **Publish App** to move the status to **In Production**. *(If you leave it in "Testing," your tokens will expire every 7 days).*
+5. Next, click **Clients** in the left column and then click **Create client**.
+    * Choose **Desktop app** as the Application Type and click **Create**. *(You can leave the default client name as is).*
     * Click **Download JSON** on the confirmation screen.
-5. **Place the Key:** Once the JSON file downloads to your computer, rename it to exactly **`credentials.json`** and drop it directly into the folder you created in Phase 1, right alongside your two `.exe` files.
+6. **Place the Key:** Once the JSON file downloads to your computer, rename it to exactly **`credentials.json`** and drop it directly into the folder you created in Phase 1, right alongside your two `.exe` files.
 
 ---
 
