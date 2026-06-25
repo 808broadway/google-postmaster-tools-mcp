@@ -76,3 +76,6 @@ An automated, standalone connector that allows Claude to read your Google Postma
 > Copy the current contents of your config file (being sure to redact any sensitive info like private API keys or passwords), paste it into a normal Claude web chat, tell the AI the exact folder path where your executables are stored, and ask it to format the new server block for you. Claude will hand you a perfect piece of text. You can then simply select all in your text editor, paste Claude's version over it, and save the file. 
 > 
 > *(Note: Be sure to paste back in any private API keys or passwords that you redacted before you hit save!)*
+> 
+>  **💡 Troubleshooting Tip: The "Fresh Chat" Rule**
+> If you ever update your configuration file or generate a new token to fix a connection error, **always start a brand-new chat** in Claude Desktop afterward. Old chats will sometimes "remember" previous errors and fail to connect, even after the underlying issue has been completely fixed!
