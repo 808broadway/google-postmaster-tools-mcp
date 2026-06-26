@@ -50,18 +50,16 @@ An automated, standalone connector that allows Claude to read your Google Postma
 3. Click the **Edit Config** button. This will automatically locate and open your `claude_desktop_config.json` file in your default text editor.
 4. Add a server block pointing to `postmaster-server-win.exe` and pass your unique token filename as an argument. 
    
-   Here is what your configuration file should look like:
+   Here is what the snippet of your configuration file should look like:
 ```json
-   {
-     "mcpServers": {
-       "google-postmaster-brand1": {
-         "command": "C:\\Your\\Exact\\Path\\postmaster-server-win.exe",
-         "args": [
-           "token_brand1.json"
-         ]
-       }
-     }
-   }
+   "mcpServers": {
+    "google-postmaster-brand1": {
+      "command": "C:\\Your\\Exact\\Path\\postmaster-server-win.exe",
+      "args": [
+        "token_brand1.json"
+      ]
+    }
+  }
    ```
    *(Important: You must use double-backslashes `\\` for your folder paths in this file, otherwise the configuration will break!)*
 
