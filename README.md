@@ -30,16 +30,23 @@ An automated, standalone connector that allows Claude to read your Google Postma
     * Click **Download JSON** on the confirmation screen.
 6. **Place the Key:** Once the JSON file downloads to your computer, rename it to exactly **`credentials.json`** and drop it directly into the folder you created in Phase 1, right alongside your two `.exe` files.
 
+### 🔑 A Note on Google Accounts and Domain Access
+This MCP server will automatically connect to **all** Google Postmaster Tools domains that your specific Google login has access to. 
+
+For example, if your primary work email (`you@exampleagency.com`) has been granted access to ten different clients' Google Postmaster Tools accounts, you only need to run this authorization process **once** using that single email address. Claude will be able to read data for all of those domains through that one connection. You do not need to generate a separate token for every single brand. 
+
+That being said, if your client domains are split across completely different, unlinked Google accounts, this tool also fully supports generating multiple unique tokens and running them side-by-side in Claude Desktop.
+
 ---
 
 ## ⚙️ Phase 3: Run the Setup Wizard
 
 1. Double-click **`setup-win.exe`**.
-2. A command window will open. Type a short, lowercase name for the brand/client you want to connect (e.g., `brand1`) and press **Enter**.
-3. A browser tab will automatically open. Log into the Google account that has access to that brand's Postmaster data.
+2. A command window will open. Type a short, lowercase name for the company/brand you want to connect (e.g., `companyname`) and press **Enter**.
+3. A browser tab will automatically open. Log into the Google account that has access to that company's Google Postmaster Tools data.
 4. *Note:* Because this is a DIY open-source app and not audited by Google corporate, you will see a warning screen. This is normal. Click **Advanced** ➔ **Go to [App Name] (unsafe)** to bypass it. 
 5. Grant read-only access. Once the browser confirms success, you can close the tab. 
-6. Look in your folder: A new file (e.g., `token_brand1.json`) has been safely generated. You can repeat this setup process anytime to add more accounts.
+6. Look in your folder: A new file (e.g., `token_companyname.json`) has been safely generated. You can repeat this setup process anytime to add more accounts.
 
 ---
 
@@ -65,7 +72,7 @@ An automated, standalone connector that allows Claude to read your Google Postma
    
    *(Important: JSON blocks must always be separated by commas. If you paste this new block at the very end of your existing configuration file, make sure there is a comma `,` on the line immediately preceding it. If you paste it at the very beginning, make sure there is a comma `,` immediately after its final closing bracket `}`!)*
 
-   Note: If you want to let Claude format the config file for, see the "Let Claude format the JSON for you" tip near the bottom of this guide.
+   Note: If you want to let Claude format the config file for you, see the "Let Claude format the JSON for you" tip near the bottom of this guide.
 
 5. Save the file and close your text editor.
 6. Completely **Quit** Claude from the Windows system tray (down by the clock) and restart the app. The server will now run invisibly in the background.
@@ -74,7 +81,7 @@ An automated, standalone connector that allows Claude to read your Google Postma
 
 **💡 Troubleshooting Tip: Let Claude format the JSON for you**
 
-If you aren't comfortable editing JSON files or if your configuration breaks, you can just ask Claude to write the exact code for your claude_desktop_config.json file!
+If you aren't comfortable editing JSON files or if your configuration breaks, you can just ask Claude to write the exact code for your `claude_desktop_config.json` file!
 
 1. Copy the current contents of your config file (being sure to redact any sensitive info like private API keys).
 2. Copy the example snippet from **Phase 4, Step 4**.
@@ -85,7 +92,7 @@ If you aren't comfortable editing JSON files or if your configuration breaks, yo
 * **The Server Name (Line 2):** The name in quotes (e.g., `"google-postmaster-tools-companyname"`) is simply the internal identifier Claude uses for the server. You can change this to anything you want as long as it's a unique string with no spaces.
 * **The Token File (Line 5):** Make sure you only provide the **exact file name** of the token (e.g., `"token_companyname.json"`), *not* the full absolute file path. The executable automatically knows to look in its own folder!
 
-Claude will hand you a perfect code with all the necessary commas and brackets in place. You can then simply select all in your text editor, paste Claude's version over it, and save the file. 
+Claude will hand you the perfect code with all the necessary commas and brackets in place. You can then simply select all in your text editor, paste Claude's version over it, and save the file. 
 
 *(Note: Be sure to paste back in any private API keys or passwords that you redacted before you hit save!)*
 
