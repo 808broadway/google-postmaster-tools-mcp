@@ -53,27 +53,43 @@ An automated, standalone connector that allows Claude to read your Google Postma
    Here is what the snippet of your configuration file should look like:
 ```json
    "mcpServers": {
-    "google-postmaster-brand1": {
+    "google-postmaster-tools-companyname": {
       "command": "C:\\Your\\Exact\\Path\\postmaster-server-win.exe",
       "args": [
-        "token_brand1.json"
+        "token_companyname.json"
       ]
     }
   }
    ```
    *(Important: You must use double-backslashes `\\` for your folder paths in this file, otherwise the configuration will break!)*
+   
+   *(Important: JSON blocks must always be separated by commas. If you paste this new block at the very end of your existing configuration file, make sure there is a comma `,` on the line immediately preceding it. If you paste it at the very beginning, make sure there is a comma `,` immediately after its final closing bracket `}`!)*
+
+   Note: If you want to let Claude format the config file for, see the "Let Claude format the JSON for you" tip near the bottom of this guide.
 
 5. Save the file and close your text editor.
 6. Completely **Quit** Claude from the Windows system tray (down by the clock) and restart the app. The server will now run invisibly in the background.
 
 ---
 
-> **💡 Troubleshooting Tip: Let Claude format the JSON for you**
-> If you aren't comfortable editing JSON files or if your configuration breaks, you can just ask Claude to write the exact text block you need! 
-> 
-> Copy the current contents of your config file (being sure to redact any sensitive info like private API keys or passwords), paste it into a normal Claude web chat, tell the AI the exact folder path where your executables are stored, and ask it to format the new server block for you. Claude will hand you a perfect piece of text. You can then simply select all in your text editor, paste Claude's version over it, and save the file. 
-> 
-> *(Note: Be sure to paste back in any private API keys or passwords that you redacted before you hit save!)*
-> 
->  **💡 Troubleshooting Tip: The "Fresh Chat" Rule**
-> If you ever update your configuration file or generate a new token to fix a connection error, **always start a brand-new chat** in Claude Desktop afterward. Old chats will sometimes "remember" previous errors and fail to connect, even after the underlying issue has been completely fixed!
+**💡 Troubleshooting Tip: Let Claude format the JSON for you**
+
+If you aren't comfortable editing JSON files or if your configuration breaks, you can just ask Claude to write the exact code for your claude_desktop_config.json file!
+
+1. Copy the current contents of your config file (being sure to redact any sensitive info like private API keys).
+2. Copy the example snippet from **Phase 4, Step 4**.
+3. Paste both into a normal Claude web chat.
+4. **Include this exact prompt:** > *"Please merge this new MCP server snippet into my existing Claude Desktop config file. My `postmaster-server-win.exe` file is located at **[INSERT YOUR EXACT FOLDER PATH HERE]** and my token file is named **[INSERT TOKEN FILENAME HERE]**. Please format the JSON perfectly, ensure the folder path uses double-backslashes, keep the token file as just the filename (no folder path), and make sure the commas separating the blocks are in the correct places."*
+
+**When setting this up, keep these two rules in mind:**
+* **The Server Name (Line 2):** The name in quotes (e.g., `"google-postmaster-tools-companyname"`) is simply the internal identifier Claude uses for the server. You can change this to anything you want as long as it's a unique string with no spaces.
+* **The Token File (Line 5):** Make sure you only provide the **exact file name** of the token (e.g., `"token_companyname.json"`), *not* the full absolute file path. The executable automatically knows to look in its own folder!
+
+Claude will hand you a perfect code with all the necessary commas and brackets in place. You can then simply select all in your text editor, paste Claude's version over it, and save the file. 
+
+*(Note: Be sure to paste back in any private API keys or passwords that you redacted before you hit save!)*
+
+---
+ 
+**💡 Troubleshooting Tip #2: The "Fresh Chat" Rule**
+ If you ever update your configuration file or generate a new token to fix a connection error, **always start a brand-new chat** in Claude Desktop afterward. Old chats will sometimes "remember" previous errors and fail to connect, even after the underlying issue has been completely fixed!
