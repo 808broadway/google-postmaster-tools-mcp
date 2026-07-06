@@ -18,10 +18,9 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: 'npm' # Assumes you are using npm; change to yarn/pnpm if applicable
 
       - name: Install Dependencies
-        run: npm ci
+        run: npm install
 
       # --- UPDATE THE BUILD COMMAND BELOW IF NEEDED ---
       # This step assumes your package.json has a script to compile for Mac, 
