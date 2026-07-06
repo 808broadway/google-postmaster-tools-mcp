@@ -27,7 +27,7 @@ jobs:
       # or you can replace it with your exact compilation command (e.g., npx pkg . --targets node20-macos-x64,node20-macos-arm64)
       - name: Compile macOS Binaries
         run: |
-          npm run build:mac || npx pkg . --targets node20-macos-x64,node20-macos-arm64 --out-path dist/
+          npm run build:mac || npx pkg . --targets node18-macos-x64,node18-macos-arm64 --out-path dist/
 
       - name: Compress Binaries into ZIP
         run: |
